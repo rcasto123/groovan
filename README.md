@@ -48,3 +48,10 @@ The direction is recorded in [DESIGN.md](DESIGN.md) and product truth in
 [PRODUCT.md](PRODUCT.md). The short version: the site is the shed. Corrugated
 steel is the page grid, the open door is the light source, and the vans are the
 only saturated things on screen.
+
+## Deploys
+
+Pushing to `main` triggers a Netlify build from this repo (`npm run build`,
+publishing `out/`). The GitHub webhook and read-only deploy key that make that
+work were added by hand — the Netlify API attaches build settings without
+creating either, which fails at the clone step with a host key error.
