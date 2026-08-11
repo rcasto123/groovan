@@ -1,0 +1,345 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-10T00:00:00Z",
+  "title": "Design System: groovan.org",
+  "extensions": {
+    "colorMeta": {
+      "shed": {
+        "role": "neutral",
+        "displayName": "Shed Ground",
+        "canonical": "#17110c",
+        "tonalRamp": ["oklch(15% 0.025 60)", "oklch(22% 0.03 60)", "oklch(30% 0.035 60)", "oklch(40% 0.04 60)", "oklch(52% 0.04 60)", "oklch(65% 0.035 60)", "oklch(80% 0.025 60)", "oklch(94% 0.015 60)"]
+      },
+      "patina": {
+        "role": "secondary",
+        "displayName": "Shed Patina",
+        "canonical": "#8fb3ac",
+        "note": "Ramp step 6 is the shipped patina-lift (#a9cdc6), the standing label colour on dark ground.",
+        "tonalRamp": ["oklch(15% 0.02 190)", "oklch(25% 0.028 190)", "oklch(35% 0.034 190)", "oklch(46% 0.038 190)", "oklch(58% 0.04 190)", "oklch(72% 0.038 190)", "oklch(85% 0.03 190)", "oklch(95% 0.018 190)"]
+      },
+      "patina-lift": {
+        "role": "secondary",
+        "displayName": "Patina Lift",
+        "canonical": "#a9cdc6",
+        "note": "Adopted at the finish review as the contrast floor for tracked labels at 0.56-0.6rem on dark ground: pegboard thead, data-label prefixes, note icon, unknown pip text.",
+        "tonalRamp": ["oklch(15% 0.02 190)", "oklch(25% 0.028 190)", "oklch(35% 0.034 190)", "oklch(46% 0.038 190)", "oklch(58% 0.04 190)", "oklch(72% 0.038 190)", "oklch(85% 0.03 190)", "oklch(95% 0.018 190)"]
+      },
+      "oxide": {
+        "role": "secondary",
+        "displayName": "Oxide Roof Trim",
+        "canonical": "#a24438",
+        "tonalRamp": ["oklch(15% 0.05 32)", "oklch(24% 0.075 32)", "oklch(34% 0.1 32)", "oklch(45% 0.125 32)", "oklch(56% 0.13 32)", "oklch(68% 0.11 32)", "oklch(82% 0.07 32)", "oklch(94% 0.03 32)"]
+      },
+      "timber": {
+        "role": "secondary",
+        "displayName": "Sun-Bleached Timber",
+        "canonical": "#cbb84a",
+        "tonalRamp": ["oklch(15% 0.03 100)", "oklch(26% 0.05 100)", "oklch(37% 0.07 100)", "oklch(48% 0.09 100)", "oklch(60% 0.105 100)", "oklch(74% 0.115 100)", "oklch(86% 0.09 100)", "oklch(95% 0.045 100)"]
+      },
+      "dirt": {
+        "role": "neutral",
+        "displayName": "Dirt Floor",
+        "canonical": "#9a8465",
+        "tonalRamp": ["oklch(15% 0.02 75)", "oklch(25% 0.028 75)", "oklch(35% 0.034 75)", "oklch(46% 0.04 75)", "oklch(58% 0.04 75)", "oklch(70% 0.036 75)", "oklch(84% 0.026 75)", "oklch(95% 0.014 75)"]
+      },
+      "daylight": {
+        "role": "neutral",
+        "displayName": "Daylight Cream",
+        "canonical": "#f4e7cc",
+        "tonalRamp": ["oklch(15% 0.02 85)", "oklch(26% 0.028 85)", "oklch(37% 0.034 85)", "oklch(49% 0.04 85)", "oklch(61% 0.042 85)", "oklch(74% 0.042 85)", "oklch(86% 0.038 85)", "oklch(96% 0.025 85)"]
+      },
+      "sun": {
+        "role": "primary",
+        "displayName": "Livery Sun",
+        "canonical": "#f0b429",
+        "tonalRamp": ["oklch(15% 0.04 80)", "oklch(26% 0.07 80)", "oklch(38% 0.1 80)", "oklch(50% 0.125 80)", "oklch(62% 0.145 80)", "oklch(80% 0.155 80)", "oklch(89% 0.1 80)", "oklch(96% 0.045 80)"]
+      },
+      "ember": {
+        "role": "primary",
+        "displayName": "Livery Ember",
+        "canonical": "#e07b26",
+        "tonalRamp": ["oklch(15% 0.045 55)", "oklch(26% 0.075 55)", "oklch(37% 0.105 55)", "oklch(48% 0.13 55)", "oklch(60% 0.15 55)", "oklch(72% 0.145 55)", "oklch(85% 0.09 55)", "oklch(95% 0.04 55)"]
+      },
+      "rust": {
+        "role": "primary",
+        "displayName": "Livery Rust",
+        "canonical": "#b4502a",
+        "tonalRamp": ["oklch(15% 0.045 42)", "oklch(25% 0.075 42)", "oklch(35% 0.105 42)", "oklch(46% 0.13 42)", "oklch(58% 0.135 42)", "oklch(71% 0.11 42)", "oklch(84% 0.07 42)", "oklch(95% 0.03 42)"]
+      },
+      "cocoa": {
+        "role": "primary",
+        "displayName": "Livery Cocoa",
+        "canonical": "#3a2817",
+        "tonalRamp": ["oklch(15% 0.028 65)", "oklch(24% 0.04 65)", "oklch(34% 0.05 65)", "oklch(45% 0.055 65)", "oklch(57% 0.055 65)", "oklch(70% 0.05 65)", "oklch(84% 0.035 65)", "oklch(95% 0.018 65)"]
+      },
+      "on-shed-2": {
+        "role": "neutral",
+        "displayName": "Warm Tan Secondary Text",
+        "canonical": "#c2a980",
+        "tonalRamp": ["oklch(15% 0.02 78)", "oklch(26% 0.03 78)", "oklch(37% 0.04 78)", "oklch(48% 0.045 78)", "oklch(60% 0.05 78)", "oklch(74% 0.05 78)", "oklch(86% 0.04 78)", "oklch(96% 0.02 78)"]
+      },
+      "chalk-on-dark": {
+        "role": "neutral",
+        "displayName": "Chalk",
+        "canonical": "#d3bf99",
+        "note": "Pairs with a dashed border at rgba(211,191,153,0.55). Its cream-panel sibling is chalk-on-light #5d4522 with rgba(93,69,34,0.5). Also the colour of the photo-plate pending hint, which adds a scrim.",
+        "tonalRamp": ["oklch(15% 0.018 82)", "oklch(26% 0.026 82)", "oklch(37% 0.034 82)", "oklch(49% 0.04 82)", "oklch(61% 0.042 82)", "oklch(75% 0.04 82)", "oklch(87% 0.032 82)", "oklch(96% 0.018 82)"]
+      },
+      "win": {
+        "role": "tertiary",
+        "displayName": "Went Right Green",
+        "canonical": "#4d7f57",
+        "note": "Surfaces: rule #4d7f57, on-dark text #7fb98c, on-cream text #2f6b3e, painted plate #26401f/#b3d9a4, pip #1f3519/#bde0ae, narrow block rgba(38,64,31,.22) on rgba(155,200,138,.3).",
+        "tonalRamp": ["oklch(15% 0.025 150)", "oklch(25% 0.04 150)", "oklch(35% 0.055 150)", "oklch(46% 0.07 150)", "oklch(58% 0.075 150)", "oklch(71% 0.07 150)", "oklch(84% 0.05 150)", "oklch(95% 0.025 150)"]
+      },
+      "setback-on-dark": {
+        "role": "tertiary",
+        "displayName": "Went Wrong Clay",
+        "canonical": "#d98a7c",
+        "note": "Surfaces: rule/on-cream text #a24438, on-dark text #d98a7c, painted plate #4a231c/#f0a292, pip #431e17/#f6b3a4, narrow block rgba(74,35,28,.32) on rgba(246,179,164,.36).",
+        "tonalRamp": ["oklch(15% 0.03 30)", "oklch(25% 0.05 30)", "oklch(35% 0.07 30)", "oklch(46% 0.09 30)", "oklch(58% 0.1 30)", "oklch(72% 0.09 30)", "oklch(85% 0.06 30)", "oklch(95% 0.028 30)"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "The doorway headline, inner-page titles and the closing statement. Uppercase, one per view." },
+      "headline": { "displayName": "Headline", "purpose": "Section heads: the bays, the bench, story chapters." },
+      "title": { "displayName": "Title", "purpose": "Van names, log entry titles, spec-block heads." },
+      "compact": { "displayName": "Compact", "purpose": "The shared 1.02rem step one notch above data: display face at 800 on buttons, body face at 500 on the narrow-viewport part heading. Size is systematic, face is contextual." },
+      "lede": { "displayName": "Lede", "purpose": "One sentence under a display heading, capped at 46ch." },
+      "body": { "displayName": "Body", "purpose": "All sustained prose, capped at 68ch (64ch inside chapter panels)." },
+      "data-body": { "displayName": "Data Body", "purpose": "Pegboard table cells and the in-page note at 0.9rem." },
+      "label": { "displayName": "Stencil Label", "purpose": "The 0.6875rem stencil default: shelf tags, plates, captions, meta rows." },
+      "label-mid": { "displayName": "Label Mid", "purpose": "0.6rem: verdict lines and the wordmark .org." },
+      "label-micro": { "displayName": "Label Micro", "purpose": "0.56rem floor: pegboard column headers, pips, data-label prefixes, photo-plate pending hint. Nothing tracked goes smaller." },
+      "chalk": { "displayName": "Chalk Mark", "purpose": "0.58rem annotations and unfilled values the owner has yet to supply." }
+    },
+    "typographyDrift": {
+      "note": "Recorded as observed, not endorsed. The build ships nine sizes between 0.5rem and 0.7rem; four of them are the system (0.6875 / 0.6 / 0.58 / 0.56). The rest sit inside the same 0.2rem band with no rule assigning them and should collapse into the four named steps as their components are next touched.",
+      "loose": [
+        { "value": "0.7rem", "where": ".skip", "collapseTo": "0.6875rem" },
+        { "value": "0.66rem", "where": ".tag", "collapseTo": "0.6875rem" },
+        { "value": "0.64rem", "where": ".status", "collapseTo": "0.6rem" },
+        { "value": "0.55rem", "where": ".tag--bay em", "collapseTo": "0.56rem" },
+        { "value": "0.5rem", "where": ".swatches span", "collapseTo": "0.56rem" },
+        { "value": "0.86rem / 0.82rem", "where": ".spec-row dd, .chapter-body b, .plate-pending b, code", "collapseTo": "one mid-data step" }
+      ]
+    },
+    "shadows": [
+      { "name": "daylight-lift", "value": "0 26px 60px -28px rgba(0,0,0,0.85), 0 2px 0 rgba(255,255,255,0.12) inset", "purpose": "The only elevation applied to a cream daylight panel." },
+      { "name": "sun-bloom", "value": "0 10px 26px -14px rgba(240,180,41,0.9)", "purpose": "Amber glow under the primary button at rest." },
+      { "name": "sun-bloom-hover", "value": "0 16px 30px -14px rgba(240,180,41,0.95)", "purpose": "Primary button hover; widens as the button lifts 2px." },
+      { "name": "doorway-spill", "value": "-40px 0 90px -20px rgba(240,180,41,0.22)", "purpose": "Light leaking left out of the opening." },
+      { "name": "inset-seat", "value": "inset 0 0 0 1px rgba(0,0,0,0.5)", "purpose": "Recesses a photo plate or the doorway opening; a seat, not a lift." },
+      { "name": "jamb-vignette", "value": "inset 0 0 44px 10px rgba(23,17,12,0.55)", "purpose": "Darkness gathering inside the door frame." },
+      { "name": "ghost-border-cream", "value": "inset 0 0 0 1px rgba(242,229,203,0.3)", "purpose": "Ghost button edge without a border property." },
+      { "name": "ghost-border-sun", "value": "inset 0 0 0 1px rgba(240,180,41,0.4)", "purpose": "Edge of the cocoa van plate." },
+      { "name": "ghost-border-white", "value": "inset 0 0 0 1px rgba(255,255,255,0.09)", "purpose": "Edge of the ledger entry-number plate." },
+      { "name": "tag-hole", "value": "inset 0 1px 0 rgba(0,0,0,0.6)", "purpose": "The punched hole in a shelf tag reads as a hole, not a dot." }
+    ],
+    "scrims": [
+      { "name": "hint-chip", "value": "rgba(23,17,12,0.72)", "protects": "The photo-plate pending hint, the only label that sits directly on the livery." },
+      { "name": "plate-wash", "value": "rgba(23,17,12,0.22)", "protects": "The whole pending-plate stack over the drawn sunburst." },
+      { "name": "plate-text-shadow", "value": "0 1px 8px rgba(23,17,12,0.9)", "protects": "Pending-plate stencil text against the brightest wedges." },
+      { "name": "hero-display-shadow", "value": "0 6px 40px rgba(0,0,0,0.75)", "protects": "The doorway headline against the corrugated ground." },
+      { "name": "hero-lede-shadow", "value": "0 2px 20px rgba(0,0,0,0.85)", "protects": "The doorway lede at small size on the same ground." },
+      { "name": "jamb-grime", "value": "linear-gradient(174deg, rgba(255,250,232,.14) 0%, rgba(255,250,232,0) 22%, rgba(38,24,9,0) 62%, rgba(38,24,9,.34) 92%, rgba(28,17,6,.5) 100%)", "protects": "Nothing textual — it ages the jamb, grubbier low down where boots and tyres reach, painted over the frame so oxide and timber keep their colour." },
+      { "name": "closer-fan", "value": "linear-gradient(92deg, rgba(16,12,8,.94) 0%, rgba(16,12,8,.86) 34%, rgba(16,12,8,.34) 78%, rgba(16,12,8,.16) 100%)", "protects": "The closing section's copy over the fading sunburst — the fan is there, the day is not." },
+      { "name": "rail-fade", "value": "linear-gradient(180deg, var(--shed) 62%, rgba(23,17,12,0.86))", "protects": "Sticky-rail legibility over whatever scrolls beneath it." }
+    ],
+    "surfaceTints": [
+      { "name": "row-hover", "value": "rgba(240,180,41,0.05)", "purpose": "Pegboard row hover; suppressed below 760px where rows are blocks." },
+      { "name": "thead-wash", "value": "rgba(143,179,172,0.06)", "purpose": "Backs the pegboard column header row." },
+      { "name": "note-wash", "value": "rgba(143,179,172,0.07)", "purpose": "The in-page note panel, with a dashed patina border at 40%." },
+      { "name": "ghost-hover", "value": "rgba(242,229,203,0.08)", "purpose": "Ghost button hover fill." },
+      { "name": "part-block-in", "value": "rgba(38,64,31,0.22) / border rgba(155,200,138,0.3)", "purpose": "Fitted, as a narrow-viewport part block." },
+      { "name": "part-block-ordered", "value": "rgba(74,58,18,0.28) / border rgba(240,180,41,0.34)", "purpose": "Ordered, as a narrow-viewport part block." },
+      { "name": "part-block-need", "value": "rgba(74,35,28,0.32) / border rgba(246,179,164,0.36)", "purpose": "Needed, as a narrow-viewport part block." },
+      { "name": "part-block-unknown", "value": "rgba(33,48,46,0.3) / border rgba(169,205,198,0.26)", "purpose": "Not looked at, as a narrow-viewport part block." },
+      { "name": "hair", "value": "rgba(242,229,203,0.14)", "purpose": "Every structural hairline on dark ground." },
+      { "name": "hair-2", "value": "rgba(242,229,203,0.3)", "purpose": "The emphasized hairline: ghost button edge." },
+      { "name": "scrollbar-thumb", "value": "linear-gradient(90deg, #3a4b48, #5f7d78 45%, #33433f)", "purpose": "The scrollbar drawn as a patina-worn strip; #3a4b48 and #33433f are its shaded ends, not palette entries." }
+    ],
+    "motion": [
+      { "name": "ease-shed", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "The only easing in the system: tag straightening, button lift, door swing." },
+      { "name": "duration-state", "value": "0.22s", "purpose": "Button and icon state changes." },
+      { "name": "duration-tag", "value": "0.25s", "purpose": "Shelf tag rotation and fill." },
+      { "name": "door-swing", "value": "1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both", "purpose": "The two leaves rotating back off the lit rectangle on load; both leaves render already-open under prefers-reduced-motion." }
+    ],
+    "breakpoints": [
+      { "name": "ledger", "value": "700px" },
+      { "name": "pegboard", "value": "760px" },
+      { "name": "rail", "value": "780px" },
+      { "name": "doorway", "value": "860px" },
+      { "name": "chapter-split", "value": "900px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one loud action per screen; livery yellow with an amber bloom and a sliding arrow.",
+      "html": "<a class=\"ds-btn\" href=\"#\">Read the work log <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 12h15.5M13.4 5.9 19.9 12l-6.5 6.1\"/></svg></a>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.78rem 1.25rem; background: #f0b429; color: #3a2817; text-decoration: none; font-family: 'Big Shoulders', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 1.02rem; letter-spacing: 0.03em; text-transform: uppercase; border: 0; border-radius: 2px; box-shadow: 0 10px 26px -14px rgba(240,180,41,0.9); transition: background 0.22s cubic-bezier(0.16,1,0.3,1), transform 0.22s cubic-bezier(0.16,1,0.3,1), box-shadow 0.22s cubic-bezier(0.16,1,0.3,1); } .ds-btn svg { transition: transform 0.22s cubic-bezier(0.16,1,0.3,1); } .ds-btn:hover { background: #ffc949; transform: translateY(-2px); box-shadow: 0 16px 30px -14px rgba(240,180,41,0.95); } .ds-btn:hover svg { transform: translateX(3px); } .ds-btn:active { transform: translateY(0); } .ds-btn:focus-visible { outline: 2px solid #f0b429; outline-offset: 3px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "The second, lower-commitment action: a cream hairline that turns patina teal on hover.",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#\">What is in them</a>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.78rem 1.25rem; background: transparent; color: #f4e7cc; text-decoration: none; font-family: 'Big Shoulders', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 1.02rem; letter-spacing: 0.03em; text-transform: uppercase; border: 0; border-radius: 2px; box-shadow: inset 0 0 0 1px rgba(242,229,203,0.3); transition: background 0.22s cubic-bezier(0.16,1,0.3,1), transform 0.22s cubic-bezier(0.16,1,0.3,1), box-shadow 0.22s cubic-bezier(0.16,1,0.3,1); } .ds-btn-ghost:hover { background: rgba(242,229,203,0.08); transform: translateY(-2px); box-shadow: inset 0 0 0 1px #8fb3ac; } .ds-btn-ghost:focus-visible { outline: 2px solid #f0b429; outline-offset: 3px; }"
+    },
+    {
+      "name": "Shelf Tag",
+      "kind": "nav",
+      "refersTo": "tag",
+      "description": "Navigation and filter control: cream card stock, punched hole, hung crooked, straightening on hover or when current.",
+      "html": "<nav class=\"ds-rail\" aria-label=\"Main\"><a class=\"ds-tag\" href=\"#\">Work log</a><a class=\"ds-tag\" href=\"#\" aria-current=\"page\">Pegboard</a><a class=\"ds-tag\" href=\"#\">How they got here</a></nav>",
+      "css": ".ds-rail { display: flex; align-items: center; gap: 1.1rem; padding: 0.8rem 0; background: #17110c; } .ds-tag { position: relative; display: inline-block; padding: 0.42rem 0.72rem 0.4rem 1.35rem; background: #e6d4ae; color: #241a11; text-decoration: none; font-family: 'Martian Mono', ui-monospace, monospace; font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; clip-path: polygon(0 50%, 9px 0, 100% 0, 100% 100%, 9px 100%); transform: rotate(-1.1deg); transition: transform 0.25s cubic-bezier(0.16,1,0.3,1), background 0.25s cubic-bezier(0.16,1,0.3,1); } .ds-tag::before { content: ''; position: absolute; left: 12px; top: 50%; width: 5px; height: 5px; margin-top: -2.5px; border-radius: 50%; background: #17110c; box-shadow: inset 0 1px 0 rgba(0,0,0,0.6); } .ds-tag:nth-child(even) { transform: rotate(0.9deg); } .ds-tag:hover { background: #f0b429; transform: rotate(0deg) translateY(-2px); } .ds-tag[aria-current='page'] { background: #f0b429; transform: rotate(0deg); } .ds-tag:focus-visible { outline: 2px solid #f0b429; outline-offset: 3px; }"
+    },
+    {
+      "name": "Bay Tag Shelf",
+      "kind": "nav",
+      "refersTo": "tag-bay",
+      "description": "The hero's closing row: two-line shelf tags naming each bay and its status, hung under the CTAs behind a hairline rule.",
+      "html": "<ul class=\"ds-bay-tags\"><li><a class=\"ds-tag-bay\" href=\"#van-chevy\">GROOVAN<em>Finished, on the road</em></a></li><li><a class=\"ds-tag-bay\" href=\"#van-econoline\">ECONOLINE<em>Apart, floor out</em></a></li></ul>",
+      "css": ".ds-bay-tags { list-style: none; display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 2.4rem 0 0; padding: 1.1rem 0 0; border-top: 1px solid rgba(242,229,203,0.14); max-width: 30rem; background: #17110c; } .ds-tag-bay { position: relative; display: flex; flex-direction: column; gap: 0.2rem; padding: 0.55rem 0.9rem 0.5rem 1.45rem; background: #f4e7cc; color: #241a11; text-decoration: none; font-family: 'Martian Mono', ui-monospace, monospace; font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; clip-path: polygon(0 50%, 9px 0, 100% 0, 100% 100%, 9px 100%); transform: rotate(-1.1deg); transition: transform 0.25s cubic-bezier(0.16,1,0.3,1), background 0.25s cubic-bezier(0.16,1,0.3,1); } .ds-tag-bay::before { content: ''; position: absolute; left: 12px; top: 50%; width: 5px; height: 5px; margin-top: -2.5px; border-radius: 50%; background: #17110c; box-shadow: inset 0 1px 0 rgba(0,0,0,0.6); } .ds-bay-tags li:nth-child(even) .ds-tag-bay { transform: rotate(0.9deg); } .ds-tag-bay em { font-style: normal; font-size: 0.55rem; letter-spacing: 0.13em; color: #6b5230; } .ds-tag-bay:hover { background: #f0b429; transform: rotate(0deg) translateY(-2px); } .ds-tag-bay:hover em { color: #3a2817; } .ds-tag-bay:focus-visible { outline: 2px solid #f0b429; outline-offset: 3px; }"
+    },
+    {
+      "name": "Daylight Panel",
+      "kind": "card",
+      "refersTo": "panel-lit",
+      "description": "The reading surface: cream lit at a 108 degree rake, hot at the door-side edge, dusty at the far corner.",
+      "html": "<article class=\"ds-lit\"><p class=\"ds-plate\">GROOVAN</p><h3 class=\"ds-lit-h\">1970s Chevrolet G-Series</h3><p>One is finished and wears a sunburst. This is the whole record of both.</p><p class=\"ds-lit-dim\">Photographed on the street, not in a studio. <span class=\"ds-chalk\">year?</span></p></article>",
+      "css": ".ds-lit { background-color: #f4e7cc; background-image: linear-gradient(108deg, rgba(255,250,236,0.95) 0%, rgba(244,231,204,0) 38%, rgba(126,96,54,0.09) 88%, rgba(126,96,54,0.16) 100%); color: #241a11; padding: 1.9rem; border-radius: 2px; box-shadow: 0 26px 60px -28px rgba(0,0,0,0.85), 0 2px 0 rgba(255,255,255,0.12) inset; font-family: Karla, system-ui, sans-serif; font-size: 1.0625rem; line-height: 1.62; max-width: 34rem; } .ds-lit p { margin: 0 0 1em; } .ds-lit p:last-child { margin-bottom: 0; } .ds-lit-h { font-family: 'Big Shoulders', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 1.75rem; line-height: 0.9; letter-spacing: 0.005em; text-transform: uppercase; color: #3a2817; margin: 0 0 0.5rem; } .ds-lit-dim { color: #6b5230; } .ds-plate { display: inline-block; background: #3a2817; color: #f0b429; padding: 0.28rem 0.6rem; margin: 0 0 0.7rem; border-radius: 2px; box-shadow: inset 0 0 0 1px rgba(240,180,41,0.4); font-family: 'Martian Mono', ui-monospace, monospace; font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; font-variant-numeric: tabular-nums; } .ds-chalk { font-family: 'Martian Mono', ui-monospace, monospace; font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase; color: #5d4522; border: 1px dashed rgba(93,69,34,0.5); padding: 0.12rem 0.4rem; border-radius: 1px; display: inline-block; vertical-align: middle; transform: rotate(-0.6deg); }"
+    },
+    {
+      "name": "State Pip",
+      "kind": "chip",
+      "refersTo": "pip-in",
+      "description": "The four part states, each a paired dark ground and tinted text so state reads without a legend.",
+      "html": "<div class=\"ds-legend\"><span class=\"ds-pip ds-pip-in\">Fitted</span><span class=\"ds-pip ds-pip-ordered\">Ordered</span><span class=\"ds-pip ds-pip-need\">Needed</span><span class=\"ds-pip ds-pip-unknown\">Not looked at</span></div>",
+      "css": ".ds-legend { display: flex; flex-wrap: wrap; gap: 0.5rem; background: #17110c; padding: 1rem; } .ds-pip { display: inline-block; padding: 0.22rem 0.55rem; border-radius: 2px; font-family: 'Martian Mono', ui-monospace, monospace; font-size: 0.56rem; letter-spacing: 0.13em; text-transform: uppercase; white-space: nowrap; } .ds-pip-in { background: #1f3519; color: #bde0ae; } .ds-pip-ordered { background: #3f3110; color: #f8c95a; } .ds-pip-need { background: #431e17; color: #f6b3a4; } .ds-pip-unknown { background: #21302e; color: #a9cdc6; }"
+    },
+    {
+      "name": "Part Block (narrow pegboard)",
+      "kind": "card",
+      "refersTo": "part-block-need",
+      "description": "Below 760px each part becomes its own block carrying its state as a translucent tint plus a matching border, so a long stack stays scannable and STATE never leaves the screen.",
+      "html": "<div class=\"ds-parts\"><div class=\"ds-part\" data-state=\"in\"><b>Slotted mag wheels, set of four</b><span data-label=\"Van\">Van: GROOVAN</span><span data-label=\"Part no.\">Part no.: —</span><span class=\"ds-pip ds-pip-in\">Fitted</span></div><div class=\"ds-part\" data-state=\"need\"><b>Floor pan, passenger side</b><span data-label=\"Van\">Van: ECONOLINE</span><span data-label=\"Part no.\">Part no.: —</span><span class=\"ds-pip ds-pip-need\">Needed</span></div><div class=\"ds-part\" data-state=\"unknown\"><b>Headlamp, passenger side</b><span data-label=\"Van\">Van: ECONOLINE</span><span data-label=\"Part no.\">Part no.: —</span><span class=\"ds-pip ds-pip-unknown\">Not looked at</span></div></div>",
+      "css": ".ds-parts { background: #17110c; padding: 1rem; font-family: Karla, system-ui, sans-serif; } .ds-part { display: block; border: 1px solid rgba(242,229,203,0.14); border-radius: 2px; padding: 0.85rem 0.95rem; margin-bottom: 0.6rem; color: #d6c095; } .ds-part[data-state='in'] { background: rgba(38,64,31,0.22); border-color: rgba(155,200,138,0.3); } .ds-part[data-state='ordered'] { background: rgba(74,58,18,0.28); border-color: rgba(240,180,41,0.34); } .ds-part[data-state='need'] { background: rgba(74,35,28,0.32); border-color: rgba(246,179,164,0.36); } .ds-part[data-state='unknown'] { background: rgba(33,48,46,0.3); border-color: rgba(169,205,198,0.26); } .ds-part b { display: block; font-weight: 500; font-size: 1.02rem; color: #f4e7cc; margin-bottom: 0.5rem; } .ds-part span[data-label] { display: block; font-size: 0.78rem; padding-top: 0.28rem; color: #d6c095; font-family: 'Martian Mono', ui-monospace, monospace; font-variant-numeric: tabular-nums; } .ds-part .ds-pip { margin-top: 0.6rem; } .ds-pip { display: inline-block; padding: 0.22rem 0.55rem; border-radius: 2px; font-family: 'Martian Mono', ui-monospace, monospace; font-size: 0.56rem; letter-spacing: 0.13em; text-transform: uppercase; white-space: nowrap; } .ds-pip-in { background: #1f3519; color: #bde0ae; } .ds-pip-need { background: #431e17; color: #f6b3a4; } .ds-pip-unknown { background: #21302e; color: #a9cdc6; }"
+    },
+    {
+      "name": "Ledger Entry Plate",
+      "kind": "chip",
+      "refersTo": "id-plate",
+      "description": "The work log's entry number as a painted bay plate; on the ledger this plate is the only place the entry's state is coded.",
+      "html": "<div class=\"ds-plates\"><span class=\"ds-id\">012</span><span class=\"ds-id ds-id-win\">013</span><span class=\"ds-id ds-id-setback\">014</span></div>",
+      "css": ".ds-plates { display: flex; gap: 0.6rem; background: #17110c; padding: 1rem; } .ds-id { display: inline-block; font-family: 'Martian Mono', ui-monospace, monospace; font-variant-numeric: tabular-nums; letter-spacing: 0.02em; font-size: 1.32rem; line-height: 1; padding: 0.3rem 0.55rem; border-radius: 2px; background: #2a3a38; color: #8fb3ac; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.09); } .ds-id-win { background: #26401f; color: #b3d9a4; } .ds-id-setback { background: #4a231c; color: #f0a292; }"
+    },
+    {
+      "name": "Log Entry",
+      "kind": "card",
+      "refersTo": "panel-lit",
+      "description": "A dated bench entry on the dark ground; its verdict is a 3px top rule plus a drawn icon, never a border ring.",
+      "html": "<li class=\"ds-entry ds-entry-setback\"><p class=\"ds-meta\"><span>014</span><time datetime=\"2026-05-18\">18 May 2026</time><span class=\"ds-van\">Econoline</span></p><h3 class=\"ds-entry-h\">Floor pan came out in pieces</h3><p class=\"ds-entry-p\">Two hours of wire wheel, and the passenger footwell folded rather than cleaned up.</p><p class=\"ds-verdict\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M6 6l12 12M18 6L6 18\"/></svg>Went wrong</p></li>",
+      "css": ".ds-entry { display: block; list-style: none; background: #221812; padding: 1.7rem; border-top: 3px solid #5f7d78; font-family: Karla, system-ui, sans-serif; font-size: 1.0625rem; line-height: 1.62; color: #f2e5cb; max-width: 26rem; } .ds-entry-setback { border-top-color: #a24438; } .ds-entry-h { font-family: 'Big Shoulders', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 1.75rem; line-height: 0.9; text-transform: uppercase; color: #f4e7cc; margin: 0.55rem 0 0.6rem; } .ds-entry-p { margin: 0; color: #c2a980; } .ds-meta { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 0; font-family: 'Martian Mono', ui-monospace, monospace; font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; font-variant-numeric: tabular-nums; color: #ab946c; } .ds-meta .ds-van { color: #8fb3ac; } .ds-verdict { display: inline-flex; align-items: center; gap: 0.4rem; margin: 0.9rem 0 0; font-family: 'Martian Mono', ui-monospace, monospace; font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: #d98a7c; }"
+    },
+    {
+      "name": "Pegboard Table",
+      "kind": "custom",
+      "refersTo": "panel-lit",
+      "description": "Cream-on-dark parts table with patina-lift micro headers and a Sun-tinted row hover; below 760px it becomes the state-tinted part blocks.",
+      "html": "<div class=\"ds-tablewrap\"><table class=\"ds-pegtable\"><thead><tr><th>Item</th><th>Van</th><th>Part no.</th><th>State</th></tr></thead><tbody><tr data-state=\"in\"><th>Slotted mag wheels, set of four</th><td>GROOVAN</td><td>—</td><td><span class=\"ds-pip ds-pip-in\">Fitted</span></td></tr><tr data-state=\"unknown\"><th>Headlamp, passenger side</th><td>ECONOLINE</td><td>—</td><td><span class=\"ds-pip ds-pip-unknown\">Not looked at</span></td></tr></tbody></table></div>",
+      "css": ".ds-tablewrap { border: 1px solid rgba(242,229,203,0.14); border-radius: 2px; overflow-x: auto; background: #17110c; } .ds-pegtable { width: 100%; border-collapse: collapse; font-size: 0.9rem; font-family: Karla, system-ui, sans-serif; } .ds-pegtable th, .ds-pegtable td { text-align: left; padding: 0.68rem 0.9rem; border-bottom: 1px solid rgba(242,229,203,0.14); vertical-align: middle; } .ds-pegtable thead th { font-family: 'Martian Mono', ui-monospace, monospace; font-size: 0.56rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 400; color: #a9cdc6; background: rgba(143,179,172,0.06); } .ds-pegtable tbody th { font-weight: 500; color: #f4e7cc; } .ds-pegtable td { color: #d6c095; } .ds-pegtable tbody tr:last-child th, .ds-pegtable tbody tr:last-child td { border-bottom: 0; } .ds-pegtable tbody tr:hover th, .ds-pegtable tbody tr:hover td { background: rgba(240,180,41,0.05); } .ds-pip { display: inline-block; padding: 0.22rem 0.55rem; border-radius: 2px; font-family: 'Martian Mono', ui-monospace, monospace; font-size: 0.56rem; letter-spacing: 0.13em; text-transform: uppercase; white-space: nowrap; } .ds-pip-in { background: #1f3519; color: #bde0ae; } .ds-pip-unknown { background: #21302e; color: #a9cdc6; }"
+    },
+    {
+      "name": "Corrugated Ground",
+      "kind": "custom",
+      "refersTo": "panel-lit",
+      "description": "The page's material: a fixed 46px specular rib roll with a worn teal wash and a tiled fractal-noise grain over it.",
+      "html": "<div class=\"ds-corrugate\"><p class=\"ds-corrugate-label\">46px pitch · galvanized · vertical</p></div>",
+      "css": ".ds-corrugate { position: relative; min-height: 180px; background-color: #17110c; background-image: repeating-linear-gradient(90deg, rgba(255,244,222,0.115) 0px, rgba(255,244,222,0.135) 1.5px, rgba(255,244,222,0.04) 5px, rgba(0,0,0,0.2) 16.56px, rgba(0,0,0,0.42) 23px, rgba(0,0,0,0.2) 29.44px, rgba(255,244,222,0.04) 41px, rgba(255,244,222,0.135) 44.5px, rgba(255,244,222,0.115) 46px), linear-gradient(180deg, rgba(143,179,172,0.1), rgba(143,179,172,0.035) 46%, rgba(120,90,52,0.05) 100%); } .ds-corrugate::before { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0.4; mix-blend-mode: overlay; background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' seed='4'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E\"); } .ds-corrugate-label { position: relative; margin: 0; padding: 1.2rem; color: #ab946c; font-family: 'Martian Mono', ui-monospace, monospace; font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; }"
+    },
+    {
+      "name": "Chalk Mark",
+      "kind": "chip",
+      "refersTo": "chalk-mark",
+      "description": "The honest blank: how the build states an unknown instead of guessing one. Swaps to its on-light pair inside a daylight panel.",
+      "html": "<div class=\"ds-chalk-demo\"><span class=\"ds-chalk-dark\">year?</span> <span class=\"ds-chalk-dark\">unfilled</span> <span class=\"ds-chalk-dark\">add your address</span></div>",
+      "css": ".ds-chalk-demo { background: #17110c; padding: 1.2rem; display: flex; gap: 0.6rem; align-items: center; } .ds-chalk-dark { font-family: 'Martian Mono', ui-monospace, monospace; font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase; color: #d3bf99; border: 1px dashed rgba(211,191,153,0.55); padding: 0.12rem 0.4rem; border-radius: 1px; display: inline-block; vertical-align: middle; transform: rotate(-0.6deg); }"
+    },
+    {
+      "name": "Photo Plate (pending)",
+      "kind": "custom",
+      "refersTo": "panel-lit",
+      "description": "A photo slot that can never render broken: with no file on disk it emits no img at all, showing the drawn livery, a stencilled plate naming the file it wants, and a scrimmed hint line that survives sitting on the brightest thing on the page.",
+      "html": "<figure class=\"ds-plate\"><div class=\"ds-plate-frame\"><svg class=\"ds-plate-art\" viewBox=\"-100 -100 200 200\" preserveAspectRatio=\"none\" aria-hidden=\"true\"><rect x=\"-100\" y=\"-100\" width=\"200\" height=\"200\" fill=\"#2c1e12\"/><g transform=\"translate(-72 78) rotate(-6)\"><path d=\"M0 0 L20.9 -299.3 A300 300 0 0 1 77.6 -289.8 Z\" fill=\"#f7d267\"/><path d=\"M0 0 L77.6 -289.8 A300 300 0 0 1 122 -274.1 Z\" fill=\"#f0b429\"/><path d=\"M0 0 L122 -274.1 A300 300 0 0 1 200.9 -222.7 Z\" fill=\"#efa521\"/><path d=\"M0 0 L200.9 -222.7 A300 300 0 0 1 259.8 -150 Z\" fill=\"#e07b26\"/><path d=\"M0 0 L259.8 -150 A300 300 0 0 1 295.4 -52.1 Z\" fill=\"#b4502a\"/><path d=\"M0 0 L295.4 -52.1 A300 300 0 0 1 273.6 122.9 Z\" fill=\"#8f3f24\"/><path d=\"M0 0 L273.6 122.9 A300 300 0 0 1 41.8 297.1 Z\" fill=\"#4a2a19\"/></g></svg><div class=\"ds-plate-pending\" role=\"img\" aria-label=\"Photo pending: the Econoline in the shed\"><span class=\"ds-stencil\">Photo pending</span><b class=\"ds-num\">econoline-shed.jpg</b><span class=\"ds-stencil ds-hint\">drop it in /public/img</span></div></div><figcaption class=\"ds-cap\">The Econoline, rear three-quarter, inside the open shed</figcaption></figure>",
+      "css": ".ds-plate { margin: 0; max-width: 30rem; } .ds-plate-frame { position: relative; aspect-ratio: 5 / 3; overflow: hidden; background: #3a2817; border-radius: 2px 2px 0 0; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.5); } .ds-plate-art { position: absolute; inset: 0; width: 100%; height: 100%; } .ds-plate-pending { position: absolute; inset: 0; z-index: 3; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.35rem; text-align: center; padding: 1rem; background: rgba(23,17,12,0.22); color: #f4e7cc; text-shadow: 0 1px 8px rgba(23,17,12,0.9); } .ds-stencil { font-family: 'Martian Mono', ui-monospace, monospace; font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; font-variant-numeric: tabular-nums; } .ds-plate-pending b { font-family: 'Martian Mono', ui-monospace, monospace; font-variant-numeric: tabular-nums; font-size: 0.82rem; letter-spacing: 0.02em; background: #f4e7cc; color: #3a2817; padding: 0.25rem 0.55rem; border-radius: 2px; } .ds-hint { color: #d3bf99; font-size: 0.56rem; background: rgba(23,17,12,0.72); padding: 0.18rem 0.45rem; border-radius: 1px; } .ds-cap { color: #ab946c; padding: 0.55rem 0.1rem 0; font-family: 'Martian Mono', ui-monospace, monospace; font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Shed",
+    "overview": "The page is the building. A vertical galvanized sheet at a fixed 46px pitch is the ground plane, an open doorway on the right is the only light source, and the two vans are the only saturated things on screen. Everything else is structure: faded shed teal, oxide-red roof trim, sun-bleached timber, dirt. Content does not sit on a surface, it sits in the light — cream daylight panels with hard corners, raked by a single directional wash that runs hot at the door-side edge and grubby at the far corner.\n\nThe palette is not invented. It is lifted from two photographs the owner supplied — a sunburst-liveried Chevrolet G-series shorty (golden yellow, orange, rust, chocolate over cream) and a Ford Econoline standing inside a corrugated shed (faded teal walls, oxide-red trim, bleached yellow door frame, dirt floor). That derivation is binding: a new colour has to be traceable to one of those two photographs or it does not enter the system.\n\nThe world refuses the category default — kraft-paper \"vintage garage\" with a stock hero photo and a reverse-chron card feed. It is loud in structure and quiet in ornament: every label is a punched shelf tag, a painted bay plate, or a chalk mark; every number is tabular; unknowns are chalked as unknown rather than styled into confidence. All materials ship as authored CSS and SVG — specular-roll ribbing, tiled fractal-noise grain, tape-line-separated sunburst wedges — because no raster imagery was available at build time. Real photographs are the intended upgrade path, and the photo slot is already built to accept them.",
+    "keyCharacteristics": [
+      "Deep chocolate-brown ground under vertical galvanized ribbing at a fixed 46px pitch",
+      "One light source: the doorway, hot at the right, falling away to the left",
+      "Cream daylight panels for all sustained reading, 2px corners at most",
+      "Livery yellow / ember / rust / cocoa appear only where a van does",
+      "Every number in Martian Mono, tabular-lined; every label uppercase stencil",
+      "State is carried twice — as a chip and as its own surface tint — so it survives any viewport",
+      "Authored SVG livery and drawn 24-grid icons — no stock imagery, no icon fonts"
+    ],
+    "rules": [
+      { "name": "The Photograph Rule", "body": "Every colour in this system is traceable to one of the two supplied van photographs. A new colour must name which photograph it came from, or it does not get added.", "section": "colors" },
+      { "name": "The Only Saturated Thing Rule", "body": "Livery colours — Sun, Ember, Rust, Cocoa — appear only where a van appears: the drawn sunburst, the bay plates, van status, and the one primary call to action per screen. The building itself is desaturated by design. If a screen reads as colourful, the livery has leaked.", "section": "colors" },
+      { "name": "The Never Grey Rule", "body": "No neutral in this system is neutral. Every text and hairline colour is tinted out of the chocolate ground or the cream light. #888 and its family are foreign objects here.", "section": "colors" },
+      { "name": "The State Travels Rule", "body": "Every state colour is declared for every surface it can reach: chip, translucent block tint plus border, top rule, painted plate, and a separate on-cream variant. Adding a state means adding all of its surfaces, not one. Never carry a dark-ground state colour onto a daylight panel — take the -on-light sibling.", "section": "colors" },
+      { "name": "The Small Label Lifts Rule", "body": "Tracked labels under ~0.6rem on the dark ground take patina-lift (#a9cdc6), not patina. The lift exists because the finish review found the dimmer teal failing at that size; it is a contrast floor, not a decorative alternative.", "section": "colors" },
+      { "name": "The Tabular Rule", "body": "Every number on this site is set in Martian Mono with tabular-nums: dates, entry IDs, part numbers, hex swatches, counts. A figure set in the body face is a bug.", "section": "typography" },
+      { "name": "The Stencil Rule", "body": "Every label is uppercase Martian Mono at 0.13–0.18em tracking. Body copy is never uppercase and never tracked; tracking is what makes a thing a label.", "section": "typography" },
+      { "name": "The Painted Heading Rule", "body": "Display and headline type is uppercase, weight 800, and set under a 1.0 line-height so multi-line headings stack like painted sign panels. Never set a heading in the body face.", "section": "typography" },
+      { "name": "The Four Steps Rule", "body": "The label ramp is 0.6875 / 0.6 / 0.58 / 0.56rem. Pick one of the four. A new small size is drift unless it replaces one of these everywhere.", "section": "typography" },
+      { "name": "The 46px Rib Rule", "body": "The corrugation pitch is a constant. It does not respond, does not scale with type, and does not change per section. It is the one measurement the whole building agrees on.", "section": "layout" },
+      { "name": "The Never Hide the Point Rule", "body": "When a layout narrows, the column that carries the answer — part state, verdict, status — must survive. Reformat the container (table to state-tinted blocks, wrapped nav to one scrolling rail) rather than pushing the payload off the edge.", "section": "layout" },
+      { "name": "The Scannable Stack Rule", "body": "A stack of more than a dozen identical blocks is not scannable, and a legend above it promises that it is. When a table becomes blocks, each block must carry its state as a surface, not only as a chip inside it.", "section": "layout" },
+      { "name": "The One Rhythm Rule", "body": "All siblings in a grid share the grid, whether or not they carry media. Rearrange what goes in the columns; do not give one sibling a different column count.", "section": "layout" },
+      { "name": "The One Light Source Rule", "body": "Every shadow falls down and away from the doorway at the right. No hard offset shadows, no shadow above an element, no second light. If a shadow implies a different sun, it is wrong.", "section": "elevation" },
+      { "name": "The Glow In Its Own Colour Rule", "body": "Accent surfaces cast their own hue (Sun glows amber), never a neutral grey drop.", "section": "elevation" },
+      { "name": "The Scrim Names Its Job Rule", "body": "A translucent black exists to make specific text survive a specific surface. If you cannot name the text it protects, it is decoration and does not belong.", "section": "elevation" },
+      { "name": "The Sharp Corner Rule", "body": "2px is the maximum radius anywhere in this system. There is no md, no lg, no pill. A rounded component is off-world.", "section": "shapes" },
+      { "name": "The Crooked Tag Rule", "body": "Shelf tags hang slightly out of true and straighten when you touch them. The rotation is the affordance; do not ship a level tag at rest.", "section": "shapes" },
+      { "name": "The Chalk Rule", "body": "An unsupplied fact ships as a chalk mark, never as plausible-looking text. If a value is not known, the chalk shows the shape of the hole.", "section": "components" },
+      { "name": "The Real Datum Rule", "body": "A stencil line above a heading (the bay plate) is permitted only when it carries an actual identifier — a licence plate, an entry ID, a system name. It is a plate, not a kicker; invented lead-in phrases do not qualify.", "section": "components" }
+    ],
+    "dos": [
+      "Do keep the corrugation at a fixed 46px pitch and let every other measure align to it.",
+      "Do set every number in Martian Mono with tabular figures — dates, IDs, part numbers, hex values, counts.",
+      "Do put sustained reading on a cream daylight panel with the 108° raking wash; dark ground is for structure, headings and data, not for paragraphs.",
+      "Do reserve Livery Sun for one primary action per screen plus van-owned surfaces.",
+      "Do give a new state all of its surfaces at once: chip, block tint plus border, rule, plate, and the on-cream variant.",
+      "Do use patina-lift for tracked labels at 0.56–0.6rem on dark ground.",
+      "Do pick a label size from the four named steps (0.6875 / 0.6 / 0.58 / 0.56rem).",
+      "Do mark unknowns with a chalk mark and let the blank be visible.",
+      "Do reformat containers at narrow widths (table to state-tinted blocks, wrapped nav to one scrolling rail) so state and verdict survive.",
+      "Do back any label that sits on the livery with a scrim, as the photo-plate hint does.",
+      "Do keep grid siblings on one column rhythm; move content between columns rather than changing the grid per item.",
+      "Do draw new icons on the 24 grid at 1.6 stroke, no fill, currentColor.",
+      "Do keep the reduced-motion path complete: the door leaves render already-open, and all transitions collapse to 0.001ms."
+    ],
+    "donts": [
+      "Don't exceed a 2px corner radius anywhere. No pills, no rounded-lg, no soft cards.",
+      "Don't use an untinted grey. Every neutral comes out of the chocolate ground or the cream light.",
+      "Don't introduce a colour that cannot be traced to the two supplied van photographs.",
+      "Don't add a tenth size to the small end of the label ramp; the five loose steps already there are drift to be collapsed, not a precedent.",
+      "Don't cast a hard offset shadow, or any shadow that implies a light source other than the doorway on the right.",
+      "Don't add a translucent black you cannot attach to specific text it protects.",
+      "Don't spend livery colour on structure — teal, oxide, timber and dirt carry the building.",
+      "Don't ship an icon font, emoji, or third-party icon package; the drawn set is the only hand on this site.",
+      "Don't set body copy in uppercase or add tracking to it — tracking is what marks a label.",
+      "Don't ship a stock or generic photograph; a slot with no real photo shows the drawn livery and its stencilled pending plate instead.",
+      "Don't hang a shelf tag level at rest or place one on anything that is not navigation, a filter, or a bay name."
+    ]
+  }
+}

@@ -1,0 +1,1427 @@
+/* ==========================================================================
+   groovan.org — the shed
+   The page is the building. Corrugated steel is the grid, the open door is
+   the light, the vans are the only saturated things on screen.
+   ========================================================================== */
+
+:root {
+  /* the shed */
+  --shed: #17110c;
+  --shed-2: #221812;
+  --shed-3: #2f2119;
+  --patina: #8fb3ac; /* faded teal off the corrugated wall */
+  --patina-dim: #5f7d78;
+  --oxide: #a24438; /* roof trim */
+  --timber: #cbb84a; /* sun-bleached door frame */
+  --dirt: #9a8465; /* floor */
+
+  /* the light */
+  --daylight: #f4e7cc;
+  --daylight-2: #e6d4ae;
+  --daylight-3: #d6c095;
+
+  /* the livery */
+  --sun: #f0b429;
+  --ember: #e07b26;
+  --rust: #b4502a;
+  --cocoa: #3a2817;
+
+  /* text */
+  --on-shed: #f2e5cb;
+  --on-shed-2: #c2a980; /* tinted from the ground, never grey */
+  --on-shed-3: #ab946c;
+  --on-light: #241a11;
+  --on-light-2: #6b5230;
+
+  --hair: rgba(242, 229, 203, 0.14);
+  --hair-2: rgba(242, 229, 203, 0.3);
+
+  --rib: 46px; /* corrugation pitch */
+  --gut: clamp(1.15rem, 3.6vw, 2.6rem);
+  --max: 1240px;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scrollbar-color: var(--patina-dim) var(--shed);
+}
+
+body {
+  margin: 0;
+  background: var(--shed);
+  color: var(--on-shed);
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* the parts of the browser we did not draw, drawn --------------------------- */
+
+::selection {
+  background: var(--sun);
+  color: var(--cocoa);
+}
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-track {
+  background: #100c08;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #3a4b48, var(--patina-dim) 45%, #33433f);
+  border: 2px solid #100c08;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--patina);
+}
+
+:focus-visible {
+  outline: 2px solid var(--sun);
+  outline-offset: 3px;
+}
+
+a {
+  color: inherit;
+  text-decoration-color: color-mix(in oklab, currentColor 45%, transparent);
+  text-underline-offset: 0.22em;
+  text-decoration-thickness: from-font;
+}
+a:hover {
+  text-decoration-color: var(--sun);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* corrugation -------------------------------------------------------------- */
+/* One rib = a bright crown, a fall, a dark valley, a rise. Vertical, like the
+   sheet is hung. Everything on the page aligns to this pitch. */
+
+.corrugate {
+  position: relative;
+  background-image:
+    /* the specular roll: a galvanized crown catches a hot line of light,
+       falls off fast into the valley, and picks up again on the next rise */
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 244, 222, 0.115) 0px,
+      rgba(255, 244, 222, 0.135) 1.5px,
+      rgba(255, 244, 222, 0.04) 5px,
+      rgba(0, 0, 0, 0.2) calc(var(--rib) * 0.36),
+      rgba(0, 0, 0, 0.42) calc(var(--rib) * 0.5),
+      rgba(0, 0, 0, 0.2) calc(var(--rib) * 0.64),
+      rgba(255, 244, 222, 0.04) calc(var(--rib) - 5px),
+      rgba(255, 244, 222, 0.135) calc(var(--rib) - 1.5px),
+      rgba(255, 244, 222, 0.115) var(--rib)
+    ),
+    /* faded teal wall paint, worn thin toward the bottom of the sheet */
+      linear-gradient(
+        180deg,
+        rgba(143, 179, 172, 0.1),
+        rgba(143, 179, 172, 0.035) 46%,
+        rgba(120, 90, 52, 0.05) 100%
+      );
+}
+
+/* galvanizing has a grain. One tiled SVG noise, painted over the ribs. */
+.corrugate::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.4;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' seed='4'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+.corrugate > * {
+  position: relative;
+}
+
+/* type --------------------------------------------------------------------- */
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display), 'Arial Narrow', system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.012em;
+  line-height: 0.9;
+  text-wrap: balance;
+  margin: 0;
+}
+
+.display {
+  font-size: clamp(3.4rem, 12vw, 6rem);
+  line-height: 0.82;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.h2 {
+  font-size: clamp(2.1rem, 5.4vw, 3.5rem);
+  text-transform: uppercase;
+}
+
+.h3 {
+  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+  text-transform: uppercase;
+  letter-spacing: 0.005em;
+}
+
+p {
+  margin: 0 0 1em;
+  max-width: 68ch;
+}
+
+.lede {
+  font-size: clamp(1.1rem, 1.7vw, 1.32rem);
+  line-height: 1.5;
+  color: var(--on-shed);
+  max-width: 46ch;
+}
+
+.dim {
+  color: var(--on-shed-2);
+}
+
+/* stencil: the label language of the whole site. Shelf tags, plates, chalk. */
+.stencil {
+  font-family: var(--font-data), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.4;
+}
+
+.num {
+  font-family: var(--font-data), ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+
+/* layout ------------------------------------------------------------------- */
+
+.wrap {
+  width: min(100% - var(--gut) * 2, var(--max));
+  margin-inline: auto;
+}
+
+.bay {
+  padding-block: clamp(4rem, 11vw, 8.5rem);
+  position: relative;
+}
+
+/* rail + tags: the navigation is a row of shelf tags hung on a wire --------- */
+
+.rail {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: linear-gradient(180deg, var(--shed) 62%, rgba(23, 17, 12, 0.86));
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--hair);
+}
+
+.rail-in {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 1.6vw, 1.1rem);
+  min-height: 62px;
+  flex-wrap: wrap;
+}
+
+/* Narrow: the tags stay on one rail and slide, the way they would on a real
+   one. Three stacked rows of nav would eat a quarter of a phone screen. */
+@media (max-width: 780px) {
+  .rail-in {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    padding-block: 0.55rem;
+    min-height: 0;
+    /* the rail runs past the edge, so fade it there instead of guillotining
+       a tag mid-word */
+    -webkit-mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 34px), transparent 100%);
+    mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 34px), transparent 100%);
+    padding-right: 34px;
+  }
+  .rail-in::-webkit-scrollbar {
+    display: none;
+  }
+  .rail-in > * {
+    flex: none;
+  }
+  .mark {
+    margin-right: 0.4rem;
+  }
+}
+
+[id] {
+  scroll-margin-top: 84px;
+}
+
+.mark {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  margin-right: auto;
+  text-decoration: none;
+  font-family: var(--font-display), sans-serif;
+  font-weight: 800;
+  font-size: 1.32rem;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--daylight);
+}
+.mark b {
+  color: var(--sun);
+  font-weight: 800;
+}
+.mark span {
+  font-family: var(--font-data), monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  color: var(--on-shed-3);
+}
+
+/* a tag: cream card stock, punched hole, hung slightly crooked */
+.tag {
+  position: relative;
+  display: inline-block;
+  padding: 0.42rem 0.72rem 0.4rem 1.35rem;
+  background: var(--daylight-2);
+  color: var(--on-light);
+  text-decoration: none;
+  font-family: var(--font-data), monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  clip-path: polygon(0 50%, 9px 0, 100% 0, 100% 100%, 9px 100%);
+  transform: rotate(-1.1deg);
+  transition: transform 0.25s var(--ease), background 0.25s var(--ease);
+}
+.tag::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  margin-top: -2.5px;
+  border-radius: 50%;
+  background: var(--shed);
+  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.6);
+}
+.tag:nth-child(even) {
+  transform: rotate(0.9deg);
+}
+.tag:hover {
+  background: var(--sun);
+  transform: rotate(0deg) translateY(-2px);
+}
+.tag[aria-current='page'] {
+  background: var(--sun);
+  transform: rotate(0deg);
+}
+
+/* daylight panel: content sits in the light that falls through the door ----- */
+
+/* Light falls through one opening, so it falls across a panel rather than
+   filling it: hot at the edge nearest the door, cooler at the far corner. */
+.lit {
+  background-color: var(--daylight);
+  background-image: linear-gradient(
+    108deg,
+    rgba(255, 250, 236, 0.95) 0%,
+    rgba(244, 231, 204, 0) 38%,
+    rgba(126, 96, 54, 0.09) 88%,
+    rgba(126, 96, 54, 0.16) 100%
+  );
+  color: var(--on-light);
+  box-shadow: 0 26px 60px -28px rgba(0, 0, 0, 0.85), 0 2px 0 rgba(255, 255, 255, 0.12) inset;
+  border-radius: 2px;
+}
+.lit h1,
+.lit h2,
+.lit h3 {
+  color: var(--cocoa);
+}
+.lit .dim {
+  color: var(--on-light-2);
+}
+
+/* chalk: how the shed annotates itself ------------------------------------- */
+
+.chalk {
+  font-family: var(--font-data), monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #d3bf99;
+  border: 1px dashed rgba(211, 191, 153, 0.55);
+  padding: 0.12rem 0.4rem;
+  border-radius: 1px;
+  display: inline-block;
+  vertical-align: middle;
+  transform: rotate(-0.6deg);
+}
+.lit .chalk {
+  color: #5d4522;
+  border-color: rgba(93, 69, 34, 0.5);
+}
+
+/* buttons ------------------------------------------------------------------ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.78rem 1.25rem;
+  background: var(--sun);
+  color: var(--cocoa);
+  text-decoration: none;
+  font-family: var(--font-display), sans-serif;
+  font-weight: 800;
+  font-size: 1.02rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border: 0;
+  border-radius: 2px;
+  box-shadow: 0 10px 26px -14px rgba(240, 180, 41, 0.9);
+  transition: background 0.22s var(--ease), transform 0.22s var(--ease),
+    box-shadow 0.22s var(--ease);
+}
+.btn:hover {
+  background: #ffc949;
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px -14px rgba(240, 180, 41, 0.95);
+}
+.btn:active {
+  transform: translateY(0);
+}
+.btn svg {
+  transition: transform 0.22s var(--ease);
+}
+.btn:hover svg {
+  transform: translateX(3px);
+}
+.btn--ghost {
+  background: transparent;
+  color: var(--daylight);
+  box-shadow: inset 0 0 0 1px var(--hair-2);
+}
+.btn--ghost:hover {
+  background: rgba(242, 229, 203, 0.08);
+  color: var(--daylight);
+  box-shadow: inset 0 0 0 1px var(--patina);
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--sun);
+  color: var(--cocoa);
+  padding: 0.7rem 1rem;
+  font-family: var(--font-data), monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.skip:focus {
+  left: 0;
+}
+
+/* the doorway -------------------------------------------------------------- */
+
+.doorway {
+  position: relative;
+  min-height: min(92svh, 860px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-bottom: 1px solid var(--hair);
+}
+
+/* the lit rectangle beyond the doors */
+.doorway-light {
+  position: absolute;
+  inset: 6% 0 6% 42%;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.5), -40px 0 90px -20px rgba(240, 180, 41, 0.22);
+}
+/* the jamb: oxide-red header, sun-bleached timber posts and sill. It stays
+   after the leaves swing back, so the opening is still legibly a doorway. */
+.doorway-light::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  border: 10px solid var(--timber);
+  border-top: 16px solid var(--oxide);
+  border-right: 0;
+  box-shadow: inset 0 0 44px 10px rgba(23, 17, 12, 0.55);
+}
+/* decades of sun on the jamb: it is grubbier low down, where boots and tyres
+   reach, than it is up at the header. Painted over the frame, not instead of
+   it, so the oxide header and timber posts keep their colour. */
+.doorway-light::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  background: linear-gradient(
+    174deg,
+    rgba(255, 250, 232, 0.14) 0%,
+    rgba(255, 250, 232, 0) 22%,
+    rgba(38, 24, 9, 0) 62%,
+    rgba(38, 24, 9, 0.34) 92%,
+    rgba(28, 17, 6, 0.5) 100%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) border-box, linear-gradient(#000 0 0) content-box;
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) border-box, linear-gradient(#000 0 0) content-box;
+  mask-composite: exclude;
+  border: 10px solid transparent;
+  border-top-width: 16px;
+  border-right: 0;
+}
+.doorway-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: radial-gradient(
+    130% 96% at 92% 40%,
+    rgba(255, 246, 214, 0.2),
+    rgba(255, 246, 214, 0) 58%
+  );
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+/* the leaves. They start closed over the light and swing back on load. */
+.leaf {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 34%;
+  background-color: #120d09;
+  transform-origin: left center;
+  will-change: transform;
+  z-index: 2;
+}
+.leaf::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-style: solid;
+  border-color: var(--timber);
+  border-width: 7px 7px 7px 3px;
+  opacity: 0.82;
+}
+.leaf--l {
+  left: 42%;
+  transform-origin: left center;
+  animation: swing-l 1.5s var(--ease) 0.15s both;
+}
+.leaf--r {
+  right: 0;
+  transform-origin: right center;
+  animation: swing-r 1.5s var(--ease) 0.15s both;
+}
+@keyframes swing-l {
+  from {
+    transform: perspective(1500px) rotateY(0deg);
+  }
+  to {
+    transform: perspective(1500px) rotateY(-84deg);
+  }
+}
+@keyframes swing-r {
+  from {
+    transform: perspective(1500px) rotateY(0deg);
+  }
+  to {
+    transform: perspective(1500px) rotateY(84deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .leaf--l {
+    transform: perspective(1500px) rotateY(-84deg);
+  }
+  .leaf--r {
+    transform: perspective(1500px) rotateY(84deg);
+  }
+}
+
+.doorway-copy {
+  position: relative;
+  z-index: 5;
+  padding-block: clamp(4rem, 9vw, 6rem);
+}
+.doorway-copy .display {
+  color: var(--daylight);
+  margin-block: 0.5rem 1.1rem;
+  text-shadow: 0 6px 40px rgba(0, 0, 0, 0.75);
+}
+.doorway-copy .lede {
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.85);
+}
+.doorway-plate {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+  color: var(--patina);
+  margin: 0;
+  max-width: 46ch;
+}
+.doorway-plate svg {
+  flex: none;
+  margin-top: 0.15em;
+}
+.doorway-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.8rem;
+}
+
+/* the two bays, named on the tags hanging off them */
+.bay-tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 2.4rem 0 0;
+  padding: 1.1rem 0 0;
+  border-top: 1px solid var(--hair);
+  max-width: 30rem;
+}
+.tag--bay {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.55rem 0.9rem 0.5rem 1.45rem;
+  background: var(--daylight);
+}
+.tag--bay em {
+  font-style: normal;
+  font-size: 0.55rem;
+  letter-spacing: 0.13em;
+  color: var(--on-light-2);
+}
+.tag--bay:hover em {
+  color: var(--cocoa);
+}
+.doorway-scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 1.1rem;
+  transform: translateX(-50%);
+  z-index: 6;
+  color: var(--on-shed-3);
+  margin: 0;
+}
+
+@media (max-width: 860px) {
+  .doorway {
+    min-height: 0;
+    padding-block: 1rem 0;
+    flex-direction: column;
+  }
+  .doorway-light {
+    position: relative;
+    inset: auto;
+    order: 2;
+    width: 100%;
+    aspect-ratio: 5 / 3;
+    margin-top: 2rem;
+  }
+  .leaf {
+    display: none;
+  }
+  .doorway-copy {
+    order: 1;
+    padding-block: 3rem 0;
+  }
+  .doorway-scroll {
+    display: none;
+  }
+}
+
+/* the bays ----------------------------------------------------------------- */
+
+.bay-head {
+  color: var(--daylight);
+  margin-bottom: clamp(1.6rem, 3vw, 2.4rem);
+}
+.bay-head::after {
+  content: '';
+  display: block;
+  height: 1px;
+  margin-top: 0.9rem;
+  background: linear-gradient(90deg, var(--patina), transparent 70%);
+}
+
+.bays {
+  display: grid;
+  gap: clamp(1.6rem, 3vw, 2.6rem);
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+}
+
+.van {
+  display: flex;
+  flex-direction: column;
+}
+.van-body {
+  padding: clamp(1.3rem, 2.4vw, 1.9rem);
+  flex: 1;
+}
+.van-body p:last-of-type {
+  margin-bottom: 0;
+}
+.van-plate {
+  display: inline-block;
+  background: var(--cocoa);
+  color: var(--sun);
+  padding: 0.28rem 0.6rem;
+  margin: 0 0 0.7rem;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(240, 180, 41, 0.4);
+}
+.van-body .h3 {
+  margin-bottom: 0.5rem;
+}
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-data), monospace;
+  font-size: 0.64rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+}
+.status--done {
+  color: #2f6b3e;
+}
+.status--wip {
+  color: var(--rust);
+}
+
+.swatches {
+  display: flex;
+  list-style: none;
+  margin: 1.2rem 0 0;
+  padding: 0;
+  gap: 2px;
+}
+.swatches li {
+  flex: 1;
+  height: 46px;
+  position: relative;
+  border-radius: 1px;
+}
+.swatches span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1.15rem;
+  font-size: 0.5rem;
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: var(--on-light-2);
+}
+.swatches {
+  margin-bottom: 1.4rem;
+}
+
+/* photo plate -------------------------------------------------------------- */
+
+.plate {
+  margin: 0;
+}
+.plate-frame {
+  position: relative;
+  aspect-ratio: 5 / 3;
+  overflow: hidden;
+  background: var(--cocoa);
+  border-radius: 2px 2px 0 0;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.5);
+}
+.plate--tall .plate-frame {
+  aspect-ratio: 4 / 5;
+}
+.plate-frame img {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  color: transparent; /* a missing file shows the plate below, not alt-text */
+}
+.plate-pending {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  text-align: center;
+  padding: 1rem;
+  background: rgba(23, 17, 12, 0.22);
+  color: var(--daylight);
+  text-shadow: 0 1px 8px rgba(23, 17, 12, 0.9);
+}
+.plate-pending b {
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  background: var(--daylight);
+  color: var(--cocoa);
+  padding: 0.25rem 0.55rem;
+  border-radius: 2px;
+}
+/* same treatment the chalk chips got — this line has to survive sitting on
+   top of the brightest thing on the page */
+.plate-pending-hint {
+  color: #d3bf99;
+  font-size: 0.56rem;
+  background: rgba(23, 17, 12, 0.72);
+  padding: 0.18rem 0.45rem;
+  border-radius: 1px;
+}
+.plate-cap {
+  color: var(--on-shed-3);
+  padding: 0.55rem 0.1rem 0;
+  font-size: 0.58rem;
+}
+
+/* the bench ---------------------------------------------------------------- */
+
+.bench {
+  background: var(--shed-2);
+  border-block: 1px solid var(--hair);
+}
+.bench-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: clamp(1.6rem, 3vw, 2.4rem);
+}
+.bench-head .h2 {
+  color: var(--daylight);
+}
+
+.strip {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1px;
+  background: var(--hair);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+.entry {
+  background: var(--shed-2);
+  padding: clamp(1.2rem, 2.2vw, 1.7rem);
+  border-top: 3px solid var(--patina-dim);
+}
+.entry--win {
+  border-top-color: #4d7f57;
+}
+.entry--setback {
+  border-top-color: var(--oxide);
+}
+.entry--wait {
+  border-top-color: var(--patina-dim);
+}
+.entry .h3 {
+  color: var(--daylight);
+  margin: 0.55rem 0 0.6rem;
+}
+.entry p {
+  margin-bottom: 0;
+}
+.entry-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  color: var(--on-shed-3);
+  margin: 0;
+}
+.entry-van {
+  color: var(--patina);
+}
+.verdict {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.9rem !important;
+  font-family: var(--font-data), monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.verdict--win {
+  color: #7fb98c;
+}
+.verdict--setback {
+  color: #d98a7c;
+}
+.verdict--wait {
+  color: var(--patina);
+}
+
+/* the close ---------------------------------------------------------------- */
+
+.closer {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(4.5rem, 10vw, 7.5rem);
+  background: #100c08;
+  border-top: 1px solid var(--hair);
+}
+.closer::after {
+  /* the light going out of the doorway: the fan is there, the day is not */
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    92deg,
+    rgba(16, 12, 8, 0.94) 0%,
+    rgba(16, 12, 8, 0.86) 34%,
+    rgba(16, 12, 8, 0.34) 78%,
+    rgba(16, 12, 8, 0.16) 100%
+  );
+}
+.closer-in {
+  position: relative;
+  z-index: 2;
+}
+.closer .display {
+  color: var(--daylight);
+  margin-bottom: 1.2rem;
+}
+.closer .lede {
+  margin-bottom: 1.8rem;
+}
+
+/* the floor ---------------------------------------------------------------- */
+
+.floor {
+  background: linear-gradient(180deg, #3a2f21, #241c12);
+  border-top: 4px solid var(--dirt);
+}
+.floor-in {
+  padding-block: 2.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 2rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.floor p {
+  margin: 0;
+  max-width: none;
+}
+.floor-mark {
+  color: var(--daylight-3);
+}
+.floor-note {
+  color: #bda683;
+}
+
+/* inner page heads --------------------------------------------------------- */
+
+.head {
+  padding-block: clamp(3.2rem, 8vw, 5.6rem) clamp(2.4rem, 5vw, 3.4rem);
+  border-bottom: 1px solid var(--hair);
+  position: relative;
+}
+.head .display {
+  color: var(--daylight);
+  margin-block: 0.4rem 1rem;
+}
+.head-plate {
+  color: var(--patina);
+  margin: 0;
+}
+
+/* filters ------------------------------------------------------------------ */
+
+.filters {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: clamp(1.8rem, 3vw, 2.6rem);
+}
+.filters .tag {
+  border: 0;
+  cursor: pointer;
+  font-family: var(--font-data), monospace;
+}
+.filters .tag[aria-pressed='true'] {
+  background: var(--sun);
+  transform: rotate(0deg);
+}
+.filters-count {
+  color: var(--on-shed-3);
+  margin-left: auto;
+}
+
+/* the ledger --------------------------------------------------------------- */
+
+.ledger {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: clamp(1rem, 2vw, 1.6rem);
+}
+.row {
+  display: grid;
+  grid-template-columns: 148px 1fr;
+  gap: clamp(1rem, 2.4vw, 2rem);
+  align-items: start;
+  position: relative;
+}
+.row::before {
+  content: '';
+  position: absolute;
+  left: 138px;
+  top: 6px;
+  bottom: -1.6rem;
+  width: 1px;
+  background: var(--hair);
+}
+.row:last-child::before {
+  display: none;
+}
+.row-rail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding-top: 0.3rem;
+  text-align: right;
+  padding-right: 1.2rem;
+}
+/* the entry number is a painted bay plate; its colour is the entry's state,
+   and it is the only place that state is coded on the panel */
+.row-id {
+  align-self: flex-end;
+  font-size: 1.32rem;
+  line-height: 1;
+  padding: 0.3rem 0.55rem;
+  border-radius: 2px;
+  background: #2a3a38;
+  color: var(--patina);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.09);
+}
+.row--win .row-id {
+  background: #26401f;
+  color: #b3d9a4;
+}
+.row--setback .row-id {
+  background: #4a231c;
+  color: #f0a292;
+}
+.row-date {
+  color: var(--on-shed-2);
+}
+.row-van {
+  color: var(--patina-dim);
+}
+.row-body {
+  padding: clamp(1.3rem, 2.4vw, 1.8rem);
+}
+.row-body .h3 {
+  margin-bottom: 0.7rem;
+  line-height: 1.02;
+}
+.row-body p:last-of-type {
+  margin-bottom: 0;
+}
+.verdict--on-light.verdict--win {
+  color: #2f6b3e;
+}
+.verdict--on-light.verdict--setback {
+  color: var(--oxide);
+}
+.verdict--on-light.verdict--wait {
+  color: #3f6560;
+}
+
+@media (max-width: 700px) {
+  .row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .row::before {
+    display: none;
+  }
+  .row-rail {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 0.8rem;
+    text-align: left;
+    padding: 0;
+  }
+  .row-id {
+    font-size: 1.1rem;
+  }
+}
+
+.empty {
+  padding: clamp(1.6rem, 4vw, 2.6rem);
+  margin: 0;
+  max-width: none;
+}
+
+/* specs -------------------------------------------------------------------- */
+
+.specs {
+  display: grid;
+  gap: clamp(1.4rem, 2.6vw, 2.2rem);
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+.spec {
+  padding: clamp(1.3rem, 2.4vw, 1.9rem);
+}
+.spec .h3 {
+  margin-bottom: 1.1rem;
+}
+.spec-list {
+  margin: 0;
+}
+.spec-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.35rem 1.2rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px dotted color-mix(in oklab, var(--cocoa) 28%, transparent);
+}
+.spec-row:last-child {
+  border-bottom: 0;
+}
+.spec-row dt {
+  color: var(--on-light-2);
+  flex: none;
+}
+.spec-row dd {
+  margin: 0;
+  margin-left: auto;
+  text-align: right;
+  font-size: 0.86rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.spec-row dd .chalk {
+  margin-left: 0.5rem;
+  white-space: nowrap;
+}
+
+/* pegboard tables ---------------------------------------------------------- */
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+.pip {
+  display: inline-block;
+  padding: 0.22rem 0.55rem;
+  border-radius: 2px;
+  font-family: var(--font-data), monospace;
+  font-size: 0.56rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.pip--in {
+  background: #1f3519;
+  color: #bde0ae;
+}
+.pip--ordered {
+  background: #3f3110;
+  color: #f8c95a;
+}
+.pip--need {
+  background: #431e17;
+  color: #f6b3a4;
+}
+.pip--unknown {
+  background: #21302e;
+  color: #a9cdc6;
+}
+
+.sysblock {
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+.sysblock-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--sun);
+  margin-bottom: 0.8rem;
+}
+.tablewrap {
+  overflow-x: auto;
+  border: 1px solid var(--hair);
+  border-radius: 2px;
+}
+.pegtable {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px;
+  font-size: 0.9rem;
+}
+.pegtable caption {
+  text-align: left;
+  padding: 0.7rem 0.9rem;
+  color: var(--on-shed-3);
+  background: #100c08;
+  border-bottom: 1px solid var(--hair);
+}
+.pegtable th,
+.pegtable td {
+  text-align: left;
+  padding: 0.68rem 0.9rem;
+  border-bottom: 1px solid var(--hair);
+  vertical-align: middle;
+}
+.pegtable thead th {
+  font-family: var(--font-data), monospace;
+  font-size: 0.56rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--patina);
+  font-weight: 400;
+  background: rgba(143, 179, 172, 0.06);
+}
+.pegtable tbody th {
+  font-weight: 500;
+  font-family: var(--font-body), sans-serif;
+  color: var(--daylight);
+}
+.pegtable td {
+  color: var(--daylight-3);
+}
+.pegtable thead th {
+  color: #a9cdc6;
+}
+.pegtable tbody tr:last-child th,
+.pegtable tbody tr:last-child td {
+  border-bottom: 0;
+}
+.pegtable tbody tr:hover th,
+.pegtable tbody tr:hover td {
+  background: rgba(240, 180, 41, 0.05);
+}
+
+/* Narrow: a five-column table would push STATE — the whole point of the
+   page — off the right edge behind a scrollbar nobody sees. Each part
+   becomes its own tag instead, state and all. */
+@media (max-width: 760px) {
+  .tablewrap {
+    overflow-x: visible;
+    border: 0;
+  }
+  .pegtable {
+    min-width: 0;
+    display: block;
+  }
+  /* the heading directly above already names the system and its count, so
+     the caption stays for screen readers and comes off the screen */
+  .pegtable caption {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    padding: 0;
+    border: 0;
+  }
+  .pegtable thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .pegtable tbody,
+  .pegtable tr {
+    display: block;
+  }
+  /* Sixteen identical blocks cannot be scanned, and the legend at the top
+     promises they can. Each part takes its state's own tint and edge, so
+     "what still needs finding" is one glance down the column. */
+  .pegtable tr {
+    border: 1px solid var(--hair);
+    border-radius: 2px;
+    padding: 0.85rem 0.95rem;
+    margin-bottom: 0.6rem;
+  }
+  .pegtable tr[data-state='in'] {
+    background: rgba(38, 64, 31, 0.22);
+    border-color: rgba(155, 200, 138, 0.3);
+  }
+  .pegtable tr[data-state='ordered'] {
+    background: rgba(74, 58, 18, 0.28);
+    border-color: rgba(240, 180, 41, 0.34);
+  }
+  .pegtable tr[data-state='need'] {
+    background: rgba(74, 35, 28, 0.32);
+    border-color: rgba(246, 179, 164, 0.36);
+  }
+  .pegtable tr[data-state='unknown'] {
+    background: rgba(33, 48, 46, 0.3);
+    border-color: rgba(169, 205, 198, 0.26);
+  }
+  .pegtable tbody th,
+  .pegtable td {
+    display: block;
+    border: 0;
+    padding: 0;
+  }
+  .pegtable tbody th {
+    font-size: 1.02rem;
+    margin-bottom: 0.5rem;
+  }
+  .pegtable td {
+    font-size: 0.78rem;
+    padding-top: 0.28rem;
+  }
+  .pegtable td::before {
+    content: attr(data-label) ': ';
+    color: #a9cdc6;
+    font-family: var(--font-data), monospace;
+    font-size: 0.56rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-right: 0.4rem;
+  }
+  .pegtable td:last-child::before {
+    content: none;
+  }
+  .pegtable td:last-child {
+    padding-top: 0.6rem;
+  }
+  .pegtable tbody tr:hover th,
+  .pegtable tbody tr:hover td {
+    background: transparent;
+  }
+}
+
+.note {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  margin-top: 2rem;
+  padding: 1rem 1.1rem;
+  color: var(--on-shed-2);
+  font-size: 0.9rem;
+  background: rgba(143, 179, 172, 0.07);
+  border: 1px dashed color-mix(in oklab, var(--patina) 40%, transparent);
+  border-radius: 2px;
+  max-width: 74ch;
+}
+.note svg {
+  flex: none;
+  margin-top: 0.25rem;
+  color: var(--patina);
+}
+code {
+  font-family: var(--font-data), monospace;
+  font-size: 0.82em;
+  color: var(--sun);
+}
+
+/* story -------------------------------------------------------------------- */
+
+.prose {
+  display: grid;
+  gap: clamp(2.6rem, 6vw, 4.5rem);
+}
+.chapter {
+  display: grid;
+  gap: clamp(1rem, 2.2vw, 1.6rem);
+  grid-template-columns: minmax(0, 1fr);
+}
+.chapter .h2 {
+  color: var(--daylight);
+  grid-column: 1 / -1;
+  align-self: start;
+}
+.chapter-body {
+  padding: clamp(1.4rem, 3vw, 2.2rem);
+  max-width: 64ch; /* the panel is the measure, not the column */
+}
+.chapter-body p:last-child {
+  margin-bottom: 0;
+}
+.chapter-body b {
+  font-family: var(--font-data), monospace;
+  font-size: 0.86em;
+  letter-spacing: 0.06em;
+  background: var(--cocoa);
+  color: var(--sun);
+  padding: 0.1rem 0.4rem;
+  border-radius: 2px;
+}
+@media (min-width: 900px) {
+  .chapter {
+    grid-template-columns: 0.85fr 1.15fr;
+    align-items: start;
+  }
+  /* a chapter with no photograph puts its heading in the left column, so it
+     keeps the same rhythm as the illustrated ones instead of leaving a dead
+     field beside a narrow panel */
+  .chapter:not(:has(.chapter-media)) .h2 {
+    grid-column: 1;
+    padding-right: 1.5rem;
+  }
+}
+
+/* reduced motion ----------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
