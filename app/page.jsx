@@ -74,7 +74,9 @@ export default function Home() {
                   src={v.photo}
                   alt={v.photoAlt}
                   file={v.photo.split('/').pop()}
-                  spin={i === 0 ? -6 : 4} flip={i === 1}
+                  spin={i === 0 ? -6 : 4}
+                  flip={i === 1}
+                  focus={v.focus}
                   caption={v.photoAlt.split(',')[0]}
                 />
                 <div className="van-body lit">

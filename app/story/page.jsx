@@ -49,6 +49,7 @@ export default function StoryPage() {
                 alt={chevy.photoAlt}
                 file={chevy.photo.split('/').pop()}
                 spin={-6}
+                focus={chevy.focus}
                 caption="The finished one. Sunburst raking back from the front wheel."
               />
             </div>
@@ -79,6 +80,8 @@ export default function StoryPage() {
                 file={econoline.photo.split('/').pop()}
                 spin={4}
                 flip
+                tall
+                focus={econoline.focus}
                 caption="Nose-in under corrugated steel. Doors open onto a dirt floor."
               />
             </div>

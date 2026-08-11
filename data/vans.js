@@ -14,6 +14,8 @@ export const vans = [
     statusLabel: 'Finished',
     tagline: 'Sunburst livery, slotted mags, and nothing left to apologise for.',
     photo: '/img/chevy-profile.jpg',
+    // landscape shot, van fills the frame — dead centre is right
+    focus: 'center',
     photoAlt:
       'A short-wheelbase Chevrolet van in profile, painted with a sunburst of golden yellow, orange and rust stripes fanning back from the front wheel over a chocolate-brown lower body.',
     livery: ['#f0b429', '#e07b26', '#b4502a', '#3a2817'],
@@ -30,6 +32,9 @@ export const vans = [
     statusLabel: 'In the shed',
     tagline: 'Yellow over brown, spare on the door, and a long way to go.',
     photo: '/img/econoline-shed.jpg',
+    // portrait shot: the van sits in the upper-middle, dirt floor fills the
+    // bottom third. Bias the crop upward or the plate becomes a photo of dirt.
+    focus: 'center 38%',
     photoAlt:
       'A yellow and brown Ford Econoline parked nose-in inside a corrugated metal shed, rear doors facing out, covered spare tyre mounted on the door, GROOVAN licence plate.',
     livery: ['#efc23a', '#8c6a3a', '#4a3520', '#8fb3ac'],

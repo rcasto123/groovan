@@ -16,7 +16,19 @@ const has = (src) => {
   }
 };
 
-export default function PhotoPlate({ src, alt, file, caption, spin = 0, flip = false, tall = false }) {
+export default function PhotoPlate({
+  src,
+  alt,
+  file,
+  caption,
+  spin = 0,
+  flip = false,
+  tall = false,
+  /* Where the van sits in the frame. The plates crop to a landscape window,
+     so a portrait photograph needs to be told which part to keep — otherwise
+     a shot of a van in a shed crops to a shot of a dirt floor. */
+  focus = 'center',
+}) {
   const present = has(src);
 
   return (
@@ -24,7 +36,13 @@ export default function PhotoPlate({ src, alt, file, caption, spin = 0, flip = f
       <div className="plate-frame">
         <Sunburst spin={spin} flip={flip} grain={false} />
         {present ? (
-          <img src={src} alt={alt} loading="lazy" decoding="async" />
+          <img
+            src={src}
+            alt={alt}
+            loading="lazy"
+            decoding="async"
+            style={{ objectPosition: focus }}
+          />
         ) : (
           <div className="plate-pending" role="img" aria-label={`Photo pending: ${alt}`}>
             <span className="stencil">Photo pending</span>

@@ -18,15 +18,28 @@ Next.js with `output: 'export'` — the build writes plain files, no server.
 
 ## Adding the photographs
 
-Two slots are waiting. Drop the files in `public/img/` with these exact names:
+One command, from anywhere the two files happen to live:
 
-| File | Photo |
-|---|---|
-| `chevy-profile.jpg` | the Chevy shorty, side profile, sunburst livery |
-| `econoline-shed.jpg` | the Econoline, rear three-quarter, inside the open shed |
+```bash
+./scripts/add-photos.sh <chevy-photo> <econoline-photo>
+```
 
-The check runs **at build time**, so the stencilled "PHOTO PENDING" plates only
-disappear after `npm run build`. Dropping the files in alone does nothing.
+It takes JPEG, PNG or HEIC straight off a phone, converts and resizes, names
+them correctly, rebuilds, and pushes. Type the command and drag each file from
+Finder into the terminal to fill in its path.
+
+By hand instead: drop them in `public/img/` as `chevy-profile.jpg` (the Chevy,
+side profile) and `econoline-shed.jpg` (the Econoline, in the shed), then run
+`npm run build`. The file check runs **at build time**, so copying the files in
+without rebuilding changes nothing.
+
+### Framing
+
+The plates crop to a landscape window. Each van carries a `focus` value in
+`data/vans.js` that decides which part of the photograph survives the crop —
+`center` for the Chevy, `center 38%` for the Econoline, whose portrait shot
+would otherwise crop to a picture of the dirt floor. Adjust the percentage if
+the crop lands wrong; smaller means higher in the frame.
 
 ## Adding content
 
