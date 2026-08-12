@@ -505,6 +505,31 @@ p {
   border-top-width: 16px;
   border-right: 0;
 }
+/* what is standing in the opening. Sits over the drawn livery, under the
+   jamb, so the frame still reads as a doorway rather than a picture border */
+.doorway-photo {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 42%;
+}
+
+.doorway-stamp {
+  position: absolute;
+  z-index: 6;
+  left: 10px;
+  bottom: 10px;
+  margin: 0;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.56rem;
+  color: var(--daylight);
+  background: rgba(23, 17, 12, 0.82);
+  border-radius: 2px;
+}
+
 .doorway-glow {
   position: absolute;
   inset: 0;

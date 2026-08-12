@@ -33,6 +33,11 @@ side profile) and `econoline-shed.jpg` (the Econoline, in the shed), then run
 `npm run build`. The file check runs **at build time**, so copying the files in
 without rebuilding changes nothing.
 
+The optional third file is the generated robot render. It becomes the header
+image on the home page, with a "generated image, not a photograph" stamp burned
+onto it — every other picture on this site is a record of something real, and
+the one that is not says so on its face.
+
 ### Framing
 
 The plates crop to a landscape window. Each van carries a `focus` value in
@@ -40,6 +45,10 @@ The plates crop to a landscape window. Each van carries a `focus` value in
 `center` for the Chevy, `center 38%` for the Econoline, whose portrait shot
 would otherwise crop to a picture of the dirt floor. Adjust the percentage if
 the crop lands wrong; smaller means higher in the frame.
+
+The header render has its own focus value in `lib/photos.js`, biased right of
+centre to keep the robot whole in a near-square opening. Move it toward 50% to
+bring more of the van back into frame.
 
 ## Adding content
 

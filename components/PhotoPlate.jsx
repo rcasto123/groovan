@@ -1,20 +1,11 @@
-import fs from 'node:fs';
-import path from 'node:path';
 import Sunburst from './Sunburst';
+import { photoExists } from '../lib/photos';
 
 /* A photo slot that is never a broken image and never needs JavaScript.
    The file's existence is checked once, at build time, so a slot with no
    photo yet emits no <img> at all — no broken-image glyph, no alt-text stub,
    just the drawn livery and a stencilled plate naming the file it wants.
    Drop the jpg in /public/img, rebuild, and the plate is gone. */
-
-const has = (src) => {
-  try {
-    return fs.existsSync(path.join(process.cwd(), 'public', src));
-  } catch {
-    return false;
-  }
-};
 
 export default function PhotoPlate({
   src,
@@ -33,7 +24,7 @@ export default function PhotoPlate({
      is not says so on its face, not in a caption a visitor might skip. */
   synthetic = false,
 }) {
-  const present = has(src);
+  const present = photoExists(src);
 
   return (
     <figure className={`plate ${tall ? 'plate--tall' : ''}`}>

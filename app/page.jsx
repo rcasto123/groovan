@@ -4,6 +4,7 @@ import PhotoPlate from '../components/PhotoPlate';
 import Icon from '../components/Icon';
 import { vans } from '../data/vans';
 import { log, resultLabel } from '../data/log';
+import { photoExists, ROBOT } from '../lib/photos';
 
 const fmt = (iso) =>
   new Date(iso + 'T12:00:00').toLocaleDateString('en-GB', {
@@ -14,14 +15,31 @@ const fmt = (iso) =>
 
 export default function Home() {
   const latest = log.slice(0, 3);
+  const robot = photoExists(ROBOT.src);
 
   return (
     <>
-      {/* ---- the doorway ------------------------------------------------- */}
+      {/* ---- the doorway -------------------------------------------------
+          The doors swing back on what is standing in the shed. Until the
+          render is in /public/img the drawn livery holds the opening on its
+          own, which is why the sunburst stays underneath rather than being
+          replaced by the image. */}
       <section className="doorway corrugate" aria-labelledby="thesis">
         <div className="doorway-light">
           <Sunburst spin={-6} />
+          {robot && (
+            <img
+              className="doorway-photo"
+              src={ROBOT.src}
+              alt={ROBOT.alt}
+              style={{ objectPosition: ROBOT.focus }}
+              fetchPriority="high"
+            />
+          )}
           <div className="doorway-glow" />
+          {robot && (
+            <p className="stencil doorway-stamp">Generated image · not a photograph</p>
+          )}
         </div>
 
         <div className="leaf leaf--l corrugate" aria-hidden="true" />

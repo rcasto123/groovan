@@ -18,8 +18,8 @@ if [ $# -lt 2 ] || [ $# -gt 3 ]; then
   echo >&2
   echo "  chevy-photo      the finished Chevy, side profile, sunburst livery" >&2
   echo "  econoline-photo  the Econoline, rear three-quarter, inside the shed" >&2
-  echo "  robot-render     optional: the generated robot image. Goes on the" >&2
-  echo "                   story page stamped as generated, not photographed." >&2
+  echo "  robot-render     optional: the generated robot image. Becomes the" >&2
+  echo "                   header, stamped as generated, not photographed." >&2
   echo >&2
   echo "Tip: type the command, then drag each file from Finder into the" >&2
   echo "terminal window — that pastes its full path for you." >&2

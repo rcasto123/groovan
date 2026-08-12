@@ -100,32 +100,6 @@ export default function StoryPage() {
           </section>
 
           <section className="chapter">
-            <h2 className="h2">What it thinks it is</h2>
-            <div className="chapter-media">
-              <PhotoPlate
-                src="/img/chevy-robot-render.jpg"
-                alt="An AI-generated image of a yellow and brown sunburst van standing upright as a robot, posed beside the van it transformed out of."
-                file="chevy-robot-render.jpg"
-                spin={-6}
-                synthetic
-                caption="Generated, not photographed. The van has never done this."
-              />
-            </div>
-            <div className="chapter-body lit">
-              <p>
-                Every other picture on this site is a record of something that exists. This one is
-                not: it is a generated image, and it is here because a brown-and-yellow shorty with
-                a sunburst down the side was always going to end up looking like this in somebody&rsquo;s
-                head.
-              </p>
-              <p>
-                It is stamped on its face rather than in a caption, because the whole point of the
-                rest of the site is that you can trust what you are looking at.
-              </p>
-            </div>
-          </section>
-
-          <section className="chapter">
             <h2 className="h2">The shed</h2>
             <div className="chapter-body lit">
               <p>
