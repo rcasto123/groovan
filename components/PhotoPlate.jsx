@@ -28,6 +28,10 @@ export default function PhotoPlate({
      so a portrait photograph needs to be told which part to keep — otherwise
      a shot of a van in a shed crops to a shot of a dirt floor. */
   focus = 'center',
+  /* Stamps the image as generated rather than photographed. Every other
+     picture on this site is a record of something that exists; anything that
+     is not says so on its face, not in a caption a visitor might skip. */
+  synthetic = false,
 }) {
   const present = has(src);
 
@@ -49,6 +53,9 @@ export default function PhotoPlate({
             <b className="num">{file}</b>
             <span className="stencil plate-pending-hint">drop it in /public/img</span>
           </div>
+        )}
+        {synthetic && present && (
+          <p className="stencil plate-synthetic">Generated image · not a photograph</p>
         )}
       </div>
       {caption && <figcaption className="stencil plate-cap">{caption}</figcaption>}

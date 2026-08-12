@@ -818,6 +818,21 @@ p {
   font-size: 0.58rem;
 }
 
+/* stamped on the image itself, not tucked into the caption — a visitor who
+   only looks at pictures still has to see it */
+.plate-synthetic {
+  position: absolute;
+  z-index: 5;
+  left: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.55rem;
+  color: var(--daylight);
+  background: rgba(23, 17, 12, 0.82);
+  border-top-right-radius: 2px;
+}
+
 /* the bench ---------------------------------------------------------------- */
 
 .bench {

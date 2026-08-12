@@ -13,11 +13,13 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-if [ $# -ne 2 ]; then
-  echo "usage: $0 <chevy-photo> <econoline-photo>" >&2
+if [ $# -lt 2 ] || [ $# -gt 3 ]; then
+  echo "usage: $0 <chevy-photo> <econoline-photo> [robot-render]" >&2
   echo >&2
   echo "  chevy-photo      the finished Chevy, side profile, sunburst livery" >&2
   echo "  econoline-photo  the Econoline, rear three-quarter, inside the shed" >&2
+  echo "  robot-render     optional: the generated robot image. Goes on the" >&2
+  echo "                   story page stamped as generated, not photographed." >&2
   echo >&2
   echo "Tip: type the command, then drag each file from Finder into the" >&2
   echo "terminal window — that pastes its full path for you." >&2
@@ -40,6 +42,7 @@ place() {
 echo "Placing photographs:"
 place "$1" chevy-profile.jpg   "Chevy    "
 place "$2" econoline-shed.jpg  "Econoline"
+[ $# -eq 3 ] && place "$3" chevy-robot-render.jpg "Render   "
 
 echo
 echo "Building..."
